@@ -22,7 +22,7 @@ public class TestBoyfriends {
 		 boyfriend.setName("Dhoondu");
 		 
 		 for(int i=0;i<2;i++){
-			 GirlFriend girlFriend = new GirlFriend("Chameli "+i, 20+i, "5' "+i,boyfriend);
+			 GirlFriend girlFriend = new GirlFriend("Chameli "+i, 20+i, "5' "+i);
 			 girlFriends.add(girlFriend);
 		 }
 		 boyfriend.setGirlFriend(girlFriends);

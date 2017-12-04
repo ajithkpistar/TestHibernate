@@ -25,6 +25,8 @@
 		<mapping class="onetoone.Wife" />
 		<mapping class="onetomany.Boyfriend" />
 		<mapping class="onetomany.GirlFriend" />
+		<mapping class="manytomany.Author" />
+		<mapping class="manytomany.Book" />
 
 	</session-factory>
 
