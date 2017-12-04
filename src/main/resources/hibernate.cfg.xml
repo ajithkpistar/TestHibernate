@@ -5,24 +5,27 @@
 
 <hibernate-configuration>
 
-    <session-factory>
+	<session-factory>
 
-        <!-- Database connection settings -->
-	<property name="myeclipse.connection.profile">org.postgresql.Driver</property>
+		<!-- Database connection settings -->
+		<property name="myeclipse.connection.profile">org.postgresql.Driver</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-		       	<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.password">root</property>
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/feroz</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">create</property>
 
-        <!-- SQL dialect -->
-        <!-- Specify session context -->
-        <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
-<mapping
-		class="com.Test" />
-		<mapping
-		class="com.TestSub" />
-    </session-factory>
+		<!-- SQL dialect -->
+		<!-- Specify session context -->
+		<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+		<mapping class="com.Test" />
+		<mapping class="com.TestSub" />
+		<mapping class="onetoone.Husband" />
+		<mapping class="onetoone.Wife" />
+		<mapping class="onetomany.Boyfriend" />
+		<mapping class="onetomany.GirlFriend" />
+
+	</session-factory>
 
 </hibernate-configuration>
