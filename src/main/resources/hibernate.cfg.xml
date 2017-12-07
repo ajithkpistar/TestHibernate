@@ -15,6 +15,7 @@
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/feroz</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<property name="hbm2ddl.auto">create</property>
+		<property name="hibernate.show_sql">true</property>
 
 		<!-- SQL dialect -->
 		<!-- Specify session context -->
@@ -27,6 +28,10 @@
 		<mapping class="onetomany.GirlFriend" />
 		<mapping class="manytomany.Author" />
 		<mapping class="manytomany.Book" />
+		<mapping class="superclass.Account" />
+		<mapping class="superclass.CreditAccount" />
+		<mapping class="superclass.DebitAccount" />
+
 
 	</session-factory>
 

@@ -85,7 +85,7 @@ public class HibernateUtil
 		threadLocal.set(null);
 
 		if (session != null) {
-			//	session.close();
+				session.close();
 		}
 	}
 
