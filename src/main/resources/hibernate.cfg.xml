@@ -14,7 +14,7 @@
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/feroz</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 		<property name="hibernate.show_sql">true</property>
 
 		<!-- SQL dialect -->
@@ -31,6 +31,15 @@
 		<mapping class="superclass.Account" />
 		<mapping class="superclass.CreditAccount" />
 		<mapping class="superclass.DebitAccount" />
+		<mapping class="dateandtime.DateEvent" />
+		<mapping class="dateandtime.Product" />
+		
+		<mapping class="columntransformer.Department" />
+		<mapping class="columntransformer.Employee" />
+		<mapping class="columntransformer.Project" />
+		<mapping class="formula.Formula" />
+		<mapping class="where.Client" />
+		<mapping class="where.ClientAccount" />
 
 
 	</session-factory>
