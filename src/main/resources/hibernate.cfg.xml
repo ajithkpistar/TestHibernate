@@ -17,6 +17,11 @@
 		<property name="hbm2ddl.auto">update</property>
 		<property name="hibernate.show_sql">true</property>
 
+		<property name="net.sf.ehcache.configurationResourceName">ehcache.xml</property>
+
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
 		<!-- SQL dialect -->
 		<!-- Specify session context -->
 		<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
@@ -33,13 +38,22 @@
 		<mapping class="superclass.DebitAccount" />
 		<mapping class="dateandtime.DateEvent" />
 		<mapping class="dateandtime.Product" />
-		
+
 		<mapping class="columntransformer.Department" />
 		<mapping class="columntransformer.Employee" />
 		<mapping class="columntransformer.Project" />
 		<mapping class="formula.Formula" />
 		<mapping class="where.Client" />
 		<mapping class="where.ClientAccount" />
+		<mapping class="any.IntegerProperty" />
+		<mapping class="any.StringProperty" />
+		<mapping class="any.PropertyHolder" />
+		<mapping class="uuid.Takla" />
+		<mapping class="mycache.Phone" />
+		<mapping class="mycache.Person" />
+		<mapping class="mycache.MyCollections" />
+		<mapping class="immutable.Shirt" />
+		
 
 
 	</session-factory>

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Client {
@@ -19,10 +20,13 @@ public class Client {
 	private String name;
 
 	@OneToMany(mappedBy = "client")
+    @Filter(name="activeAccount", condition="active = :active")
+
 	private List<ClientAccount> debitAccounts = new ArrayList<>();
 
-	@OneToMany(mappedBy = "client")
-	private List<ClientAccount> creditAccounts = new ArrayList<>();
+/*	uncoment this to check @where annotation test
+ * @OneToMany(mappedBy = "client")
+	private List<ClientAccount> creditAccounts = new ArrayList<>();*/
 
 	public Client() {
 		super();
@@ -53,12 +57,12 @@ public class Client {
 		this.debitAccounts = debitAccounts;
 	}
 
-	public List<ClientAccount> getCreditAccounts() {
+	/*public List<ClientAccount> getCreditAccounts() {
 		return creditAccounts;
 	}
 
 	public void setCreditAccounts(List<ClientAccount> creditAccounts) {
 		this.creditAccounts = creditAccounts;
 	}
-
+*/
 }

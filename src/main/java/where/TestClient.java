@@ -12,10 +12,13 @@ public class TestClient {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		 session.getTransaction().begin();
-		 
-		  List<ClientAccount> accounts = session.createQuery("select a from ClientAccount a", ClientAccount.class).getResultList();
+		 session
+	        .unwrap( Session.class )
+	        .enableFilter( "activeAccount" )
+	        .setParameter( "active", true);
+		 List<ClientAccount> accounts = session.createQuery("select a from ClientAccount a", ClientAccount.class).getResultList();
 		  System.out.println(accounts.size());
-		 /*Client client = new Client();
+		/* Client client = new Client();
 		    client.setName( "John Doe" );
 		    session.persist( client );
 
@@ -25,11 +28,11 @@ public class TestClient {
 		    account1.setRate( 1.25 / 100 );
 		    account1.setActive( true );
 		    account1.setClient( client );
-		    client.getCreditAccounts().add( account1 );
+		    client.getDebitAccounts().add( account1 );
 		    session.persist( account1 );
 
 		    ClientAccount account2 = new ClientAccount( );
-		    account2.setType(ClientAccount.AccountType.DEBIT);
+		    account2.setType( ClientAccount.AccountType.DEBIT );
 		    account2.setAmount( 0d );
 		    account2.setRate( 1.05 / 100 );
 		    account2.setActive( false );
@@ -38,12 +41,12 @@ public class TestClient {
 		    session.persist( account2 );
 
 		    ClientAccount account3 = new ClientAccount( );
-		    account3.setType( ClientAccount.AccountType.CREDIT );
+		    account3.setType( ClientAccount.AccountType.DEBIT );
 		    account3.setAmount( 250d );
 		    account3.setRate( 1.05 / 100 );
 		    account3.setActive( true );
 		    account3.setClient( client );
-		    client.getDebitAccounts().add( account3 ); 
+		    client.getDebitAccounts().add( account3 );
 		    session.persist( account3 );*/
 
 		 

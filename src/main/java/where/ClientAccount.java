@@ -8,11 +8,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.ParamDef;
 import org.hibernate.annotations.Where;
 @Entity
-@Where( clause = "active = true" )
-
+/*@Where( clause = "active = true" )
+*/
+@FilterDef(name="activeAccount", parameters=@ParamDef( name="active", type="boolean" ) )
+@Filter(name="activeAccount", condition="active = :active")
 public class ClientAccount {
 	@GenericGenerator(name = "generator", strategy = "increment")
 	@Id
